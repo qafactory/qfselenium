@@ -20,7 +20,7 @@ public class Main2 {
             a++;
         } */
 
-        while (true){
+        /*while (true){
             if(a>15){
                 break;
             }
@@ -30,6 +30,11 @@ public class Main2 {
         }
 
         System.out.println("Done.");
+        */
+
+        if (true){
+            System.out.println("Hi");
+        }
 
 
     }
