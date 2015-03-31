@@ -18,7 +18,7 @@ public class Main2 {
         while (a<15){
             System.out.println("a is: " + a);
             a++;
-        } */
+        }
 
         while (true){
             if(a>20){
@@ -30,6 +30,12 @@ public class Main2 {
         }
 
         System.out.println("Done.");
+        */
+
+        for (int i = 0; i<5; i++){
+            System.out.println(i);
+        }
+
 
 
     }
