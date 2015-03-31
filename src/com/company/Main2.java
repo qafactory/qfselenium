@@ -13,7 +13,7 @@ public class Main2 {
             System.out.println("Good bye");
         } */
 
-        int a = 10;
+        int a = 12;
         /*
         while (a<15){
             System.out.println("a is: " + a);
@@ -21,7 +21,7 @@ public class Main2 {
         } */
 
         while (true){
-            if(a>15){
+            if(a>20){
                 break;
             }
             System.out.println("a is: " + a);
