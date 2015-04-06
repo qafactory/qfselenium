@@ -1,4 +1,4 @@
-package com.company.home;
+package com.company;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
