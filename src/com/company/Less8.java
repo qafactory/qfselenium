@@ -17,18 +17,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
  */
 
 @RunWith(JUnit4.class)
-public class Less7 {
+public class Less8 {
 
     public static WebDriver driver;
-
-//    @Test
-//    public void test2(){
-//        int a =10;
-//        int b = 5;
-//        int expectedResult = 15;
-//        Assert.assertEquals("Expected result didn't match.", expectedResult, a+b);
-//        Assert.assertTrue(expectedResult == (a+b));
-//    }
 
     @Test
     public void check1(){
@@ -87,22 +78,22 @@ public class Less7 {
     }
 
     @Test
-    public void btnText() {
-        Assert.assertEquals("Generate", button());
-    }
-
-    @Test
-    public void titleText() {
-        Assert.assertEquals("Password generator", title());
-    }
-
-    @Test
-    public void enabled(){
+    public void check7(){
         master("Master");
         site("gmail.com");
         generate();
-        Assert.assertEquals(true, siteIsEnabled());
-        Assert.assertEquals(true, masterIsEnabled());
+        Assert.assertEquals("Master",master());
+        Assert.assertEquals("gmail.com",site());
+    }
+
+    @Test
+    public void enabledFields(){
+        master("Master");
+        site("gmail.com");
+        generate();
+        Assert.assertEquals("Master field is not enabled",true, masterIsEnabled());
+        Assert.assertEquals("Site field is not enabled",true, siteIsEnabled());
+        Assert.assertEquals("Generated field is not enabled",true, passwIsEnabled());
     }
 
     @Test
@@ -112,55 +103,49 @@ public class Less7 {
         Assert.assertEquals("Generated password", passwText());
     }
 
-
-    //Homework
     @Test
-    public void homework(){
-        master("12345678");
-        site("gmail.com");
-        generate();
-        System.out.println(password());
-        System.out.println(master());// 12345678
-        System.out.println(site()); // gmail.com
-        System.out.println(title()); // Password generator
-        System.out.println(button()); // Generate
-        site("");
-        generate();
-        System.out.println(password()); // 9Ixm2r5Xnm41Q@1a
+    public void btnText() {
+        Assert.assertEquals("Generate", button());
+    }
+
+    @Test
+    public void titleText() {
+        Assert.assertEquals("Password generator", title());
     }
 
 
     public static void master(String p){
-        WebElement passw = driver.findElement(By.name("master"));
-        passw.clear();
-        passw.sendKeys(p);
+        WebElement master = driver.findElements(By.tagName("input")).get(0);
+        master.clear();
+        master.sendKeys(p);
     }
 
     public static void site(String s){
-        WebElement site = driver.findElement(By.name("site"));
+        WebElement site = driver.findElements(By.tagName("input")).get(1);
         site.clear();
         site.sendKeys(s);
 
     }
 
     public static void generate(){
-        WebElement site = driver.findElement(By.name("site"));
+        WebElement site = driver.findElements(By.tagName("input")).get(1);
         site.sendKeys(Keys.ENTER);
     }
 
     public static String password(){
-        WebElement gPassw = driver.findElement(By.name("password"));
+        WebElement gPassw = driver.findElements(By.tagName("input")).get(3);
         return gPassw.getAttribute("value");
 
     }
 
     public static String master(){
-        WebElement passw = driver.findElement(By.name("master"));
-        return passw.getAttribute("value");
+        WebElement master = driver.findElements(By.tagName("input")).get(0);
+        return master.getAttribute("value");
     }
 
+
     public static String site(){
-        WebElement site = driver.findElement(By.name("site"));
+        WebElement site = driver.findElements(By.tagName("input")).get(1);
         return site.getAttribute("value");
     }
 
@@ -171,16 +156,6 @@ public class Less7 {
     public static String button(){
         WebElement btn = driver.findElements(By.tagName("input")).get(2);
         return btn.getAttribute("value");
-    }
-
-    public static boolean masterIsEnabled(){
-        WebElement site = driver.findElement(By.name("master"));
-        return site.isEnabled();
-    }
-
-    public static boolean siteIsEnabled(){
-        WebElement site = driver.findElement(By.name("site"));
-        return site.isEnabled();
     }
 
     public static String masterText(){
@@ -198,7 +173,20 @@ public class Less7 {
         return passw.getText();
     }
 
+    public static boolean masterIsEnabled(){
+        WebElement master = driver.findElements(By.tagName("input")).get(0);
+        return master.isEnabled();
+    }
 
+    public static boolean siteIsEnabled(){
+        WebElement site = driver.findElements(By.tagName("input")).get(1);
+        return site.isEnabled();
+    }
+
+    public static boolean passwIsEnabled(){
+        WebElement passw = driver.findElements(By.tagName("input")).get(3);
+        return passw.isEnabled();
+    }
 
 
     @After //Run after every @Test
@@ -212,7 +200,7 @@ public class Less7 {
         //System.setProperty("webdriver.chrome.driver", "/home/emma/Documents/Tools/selenium/chromedriver");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("http://angel.net/~nic/passwd.current.html");
+        driver.get("http://oxogamestudio.com/passwd.current6.htm");
     }
 
 
