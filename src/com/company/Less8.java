@@ -115,37 +115,39 @@ public class Less8 {
 
 
     public static void master(String p){
-        WebElement master = driver.findElements(By.tagName("input")).get(0);
+        WebElement master = driver.findElement(By.xpath("//input[@type='password']"));
         master.clear();
         master.sendKeys(p);
     }
 
     public static void site(String s){
-        WebElement site = driver.findElements(By.tagName("input")).get(1);
+        WebElement site = driver.findElement(By.xpath("//tr[2]/td[2]/input"));
         site.clear();
         site.sendKeys(s);
 
     }
 
     public static void generate(){
-        WebElement site = driver.findElements(By.tagName("input")).get(1);
-        site.sendKeys(Keys.ENTER);
+        WebElement btnG = driver.findElement(By.xpath("//input[@type='submit']"));
+        btnG.click();
     }
 
+    // wait cycle
     public static String password(){
-        WebElement gPassw = driver.findElements(By.tagName("input")).get(3);
-        return gPassw.getAttribute("value");
+        WebElement passw = driver.findElement(By.xpath("//tr[4]/td/input"));
+
+        return passw.getAttribute("value");
 
     }
 
     public static String master(){
-        WebElement master = driver.findElements(By.tagName("input")).get(0);
+        WebElement master = driver.findElement(By.xpath("//input[@type='password']"));
         return master.getAttribute("value");
     }
 
 
     public static String site(){
-        WebElement site = driver.findElements(By.tagName("input")).get(1);
+        WebElement site = driver.findElement(By.xpath("//tr[2]/td[2]/input"));
         return site.getAttribute("value");
     }
 
@@ -154,37 +156,37 @@ public class Less8 {
     }
 
     public static String button(){
-        WebElement btn = driver.findElements(By.tagName("input")).get(2);
+        WebElement btn = driver.findElement(By.xpath("//input[@type='submit']"));
         return btn.getAttribute("value");
     }
 
     public static String masterText(){
-        WebElement master = driver.findElements(By.tagName("td")).get(0);
+        WebElement master = driver.findElement(By.xpath("//tr[1]/td[1]"));
         return master.getText();
     }
 
     public static String siteText(){
-        WebElement site = driver.findElements(By.tagName("td")).get(2);
+        WebElement site = driver.findElement(By.xpath("//tr[2]/td[1]"));
         return site.getText();
     }
 
     public static String passwText(){
-        WebElement passw = driver.findElements(By.tagName("td")).get(5);
+        WebElement passw = driver.findElement(By.xpath("//tr[4]/td[1]"));
         return passw.getText();
     }
 
     public static boolean masterIsEnabled(){
-        WebElement master = driver.findElements(By.tagName("input")).get(0);
+        WebElement master = driver.findElement(By.xpath("//input[@type='password']"));
         return master.isEnabled();
     }
 
     public static boolean siteIsEnabled(){
-        WebElement site = driver.findElements(By.tagName("input")).get(1);
+        WebElement site = driver.findElement(By.xpath("//tr[2]/td[2]/input"));
         return site.isEnabled();
     }
 
     public static boolean passwIsEnabled(){
-        WebElement passw = driver.findElements(By.tagName("input")).get(3);
+        WebElement passw = driver.findElement(By.xpath("//tr[4]/td/input"));
         return passw.isEnabled();
     }
 
@@ -200,7 +202,7 @@ public class Less8 {
         //System.setProperty("webdriver.chrome.driver", "/home/emma/Documents/Tools/selenium/chromedriver");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("http://oxogamestudio.com/passwd.current6.htm");
+        driver.get("http://oxogamestudio.com/passwd.current7.htm");
     }
 
 
