@@ -11,6 +11,10 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Admin on 08.04.15.
@@ -20,6 +24,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class Less8 {
 
     public static WebDriver driver;
+
 
     @Test
     public void check1(){
@@ -113,6 +118,7 @@ public class Less8 {
         Assert.assertEquals("Password generator", title());
     }
 
+//   #############################################################################
 
     public static void master(String p){
         WebElement master = driver.findElement(By.xpath("//input[@type='password']"));
@@ -129,14 +135,29 @@ public class Less8 {
 
     public static void generate(){
         WebElement btnG = driver.findElement(By.xpath("//input[@type='submit']"));
-        btnG.click();
+        if(btnG.isDisplayed()){
+            btnG.click();
+        }
+        else {
+            try {
+                Thread.sleep(8000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     // wait cycle
     public static String password(){
         WebElement passw = driver.findElement(By.xpath("//tr[4]/td/input"));
-
+        try {
+                Thread.sleep(8000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         return passw.getAttribute("value");
+
+
 
     }
 
@@ -198,11 +219,14 @@ public class Less8 {
 
     @Before //Run before every @Test
     public void start(){
-        System.setProperty("webdriver.chrome.driver", "C:\\Automation\\Soft\\chromedriver_win32\\chromedriver.exe");
-        //System.setProperty("webdriver.chrome.driver", "/home/emma/Documents/Tools/selenium/chromedriver");
+        //System.setProperty("webdriver.chrome.driver", "C:\\Automation\\Soft\\chromedriver_win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "/home/emma/Documents/Tools/selenium/chromedriver");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("http://oxogamestudio.com/passwd.current7.htm");
+        driver.get("http://oxogamestudio.com/passwd.current8.htm");
+        driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+
+
     }
 
 
