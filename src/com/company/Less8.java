@@ -179,6 +179,7 @@ public class Less8 {
     public static String button(){
         WebElement btn = driver.findElement(By.xpath("//input[@type='submit']"));
         return btn.getAttribute("value");
+
     }
 
     public static String masterText(){

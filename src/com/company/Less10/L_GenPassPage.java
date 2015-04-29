@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 /**
  * Created by emma on 4/29/15.
  */
-public class GenPassPage {
+public class L_GenPassPage {
 
     public static void setField(String fieldName, String value){
         TestHelper.driver.findElement(By.xpath("")).sendKeys(value);
