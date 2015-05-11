@@ -75,15 +75,62 @@ public class Tests {
     @Test
     public void Test7(){
         open("https://translate.google.com/#auto/en/Hello");
+        Assert.assertEquals("Hello", sourceText());
+        Assert.assertEquals("Hello", resultText());
+    }
 
-        System.out.println(resultText());
+    // 8. Слева поставить Spanish, справа English, ввести слева Hello, нажать <>, проверить что справа стало hola
+    @Test
+    public  void Test8(){
+        selectSpanishLeft();
+        selectEnglishRight();
+        enterTxt("Hello");
+        switchLangs();
+        Assert.assertEquals("¡Hola", resultText());
+    }
 
-//        Assert.assertEquals("Hello", sourceText());
-//        Assert.assertEquals("Hello", resultText());
+    // 9. Вводим слева Hello, нажимаем X, проверяем что слева и справа пусто.
+    @Test
+    public void Test9(){
+        enterTxt("Hello");
+        clearText();
+        Assert.assertEquals("", sourceText());
+        Assert.assertEquals("", resultText());
+    }
 
-
+    //  10. Вьібираем слева Укр, справа Китайский, вводим слева С У! Г С!, пр перевод.
+    @Test
+    public void Test10(){
+        selectUkrLeft();
+        selectMalayRight();
+        enterTxt("С У! Г С!");
+        clickTranslate();
+        Assert.assertEquals("С У! Г С!", sourceText());
+        Assert.assertEquals("Dalam C! Encik C!", resultText());
 
     }
+
+    // 11. Открьіваем ссьілку https://translate.google.com/#uk/jw/Hello проверяем что слева вьібран Украинский язьік, справа Джаванизский, и что слева и справа "Hello"
+    @Test
+    public void Test11(){
+        open("https://translate.google.com/#uk/jw/Hello");
+        Assert.assertTrue(isUrkLeft());
+        Assert.assertTrue(isJavanRight());
+        Assert.assertEquals("Hello", sourceText());
+        Assert.assertEquals("Hello", resultText());
+
+    }
+
+    // 12. Открьіваем сайт, проверяем бьістро доступньіе кнопки язьіков слева и справа.
+    @Test
+    public void Test12(){
+        Assert.assertTrue(isLeftLangsBnts());
+        Assert.assertTrue(isRightLangsBnts());
+
+    }
+
+
+    // 13. //div[contains(@class, 'jfk-button-standar
 
 
 

@@ -31,7 +31,6 @@ public class TrPage {
     }
 
 
-
     public static void clickTranslate() {
         WebElement btnTranslate = driver.findElement(By.id("gt-submit"));
         btnTranslate.click();
@@ -91,6 +90,11 @@ public class TrPage {
 
     }
 
+    public static void showLanguagesRight() {
+        WebElement langArrow = driver.findElement(By.xpath("//*[@id='gt-tl-gms']"));
+        langArrow.click();
+    }
+
     public static boolean isLanguagePresentLeft(String lang) {
         lang = lang.trim().toLowerCase();
 
@@ -114,12 +118,68 @@ public class TrPage {
     }
 
     public static boolean isSoundBtnPresent() {
-       WebElement soundBtn = driver.findElement(By.xpath("//*[@id='gt-res-listen']")).findElement(By.xpath("span"));
-       wait.until(ExpectedConditions.visibilityOf(soundBtn));
+        WebElement soundBtn = driver.findElement(By.xpath("//*[@id='gt-res-listen']")).findElement(By.xpath("span"));
+        wait.until(ExpectedConditions.visibilityOf(soundBtn));
 
-       return soundBtn.isDisplayed();
+        return soundBtn.isDisplayed();
 
+    }
+
+    public static void selectSpanishLeft() {
+        WebElement btnSpanishLeft = driver.findElement(By.xpath("//div[@id='gt-sl-sugg']/div[@value='es']"));
+        btnSpanishLeft.click();
+    }
+
+    public static void selectEnglishRight() {
+        WebElement btnEnglishRight = driver.findElement(By.xpath("//div[@id='gt-tl-sugg']/div[@value='en']"));
+        btnEnglishRight.click();
+    }
+
+    public static void switchLangs() {
+        WebElement btnSwitchLangs = driver.findElement(By.xpath("//div[@id='gt-swap']"));
+        btnSwitchLangs.click();
+    }
+
+    public static void clearText() {
+        WebElement btnClearText = driver.findElement(By.xpath("//div[@id='gt-clear']/span"));
+        btnClearText.click();
+
+    }
+
+    public static void selectUkrLeft(){
+        showLanguagesLeft();
+        WebElement btnUrk = driver.findElement(By.xpath("//div[@id=':2c']"));
+        btnUrk.click();
+    }
+
+    public static void selectMalayRight(){
+        showLanguagesRight();
+        WebElement btnMalay = driver.findElement(By.xpath("//div[@id=':42']"));
+        btnMalay.click();
+
+    }
+
+    public static boolean isUrkLeft(){
+        WebElement btnUkrLeft = driver.findElement(By.xpath("//*[@id='gt-sl-sugg']/div[@value='uk']"));
+        return btnUkrLeft.isDisplayed();
+    }
+
+    public static boolean isJavanRight(){
+        WebElement btnJavanRight = driver.findElement(By.xpath("//*[@id='gt-tl-sugg']/div[@value='jw']"));
+        return btnJavanRight.isDisplayed();
+    }
+
+    public static boolean isLeftLangsBnts(){
+        WebElement leftLangsBnts = driver.findElement(By.xpath("//*[@id='gt-sl-sugg']"));
+        return leftLangsBnts.isDisplayed();
+    }
+
+    public static boolean isRightLangsBnts(){
+        WebElement rightLangsBnts = driver.findElement(By.xpath("//*[@id='gt-tl-sugg']"));
+        return rightLangsBnts.isDisplayed();
     }
 
 
 }
+
+
