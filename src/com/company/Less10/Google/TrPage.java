@@ -179,6 +179,7 @@ public class TrPage {
         WebElement rightLangsBnts = driver.findElement(By.xpath("//*[@id='gt-tl-sugg']"));
         return rightLangsBnts.isDisplayed();
     }
+    //
 
 
 }
