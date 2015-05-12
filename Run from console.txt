@@ -1,0 +1,8 @@
+## Java/jdk/bin should be set in Path variable
+
+## Compile tests (.java to .class)
+javac -classpath ";C:\Automation\Soft\selenium-java-2.44.0\selenium-2.44.0\*;C:\Automation\Soft\selenium-java-2.44.0\selenium-2.44.0\libs\*;C:\Automation\Project\Idea\Lesson1\out\production\Lesson1;" -encoding utf8 -d "C:/Automation/Project/Idea/Lesson1/out/production/Lesson1" C:/Automation/Project/Idea/Lesson1/src/com/company/*.java C:/Automation/Project/Idea/Lesson1/src/com/company/home/*.java C:/Automation/Project/Idea/Lesson1/src/com/company/Less10/*.java src/com/company/Less10/Google/*.java
+
+-Dtestrun.driver=chrome
+## Run tests
+java -Dfile.encoding=UTF-8 -classpath ";C:\Automation\Soft\selenium-java-2.44.0\selenium-2.44.0\*;C:\Automation\Soft\selenium-java-2.44.0\selenium-2.44.0\libs\*;C:\Automation\Project\Idea\Lesson1\out\production\Lesson1;" org.junit.runner.JUnitCore com.company.Less7
