@@ -43,6 +43,7 @@ public class TrPage {
 
     public static String resultText() {
         WebElement resultArea = driver.findElement(By.xpath("//*[@id='result_box']"));
+        wait.until(ExpectedConditions.visibilityOf(resultArea));
         return resultArea.getText();
     }
 

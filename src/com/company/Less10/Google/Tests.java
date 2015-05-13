@@ -103,10 +103,10 @@ public class Tests {
     public void Test10(){
         selectUkrLeft();
         selectMalayRight();
-        enterTxt("С У! Г С!");
+        enterTxt("привет!");
         clickTranslate();
-        Assert.assertEquals("С У! Г С!", sourceText());
-        Assert.assertEquals("Dalam C! Encik C!", resultText());
+        Assert.assertEquals("привет!", sourceText());
+        Assert.assertEquals("hi!", resultText());
 
     }
 
