@@ -41,7 +41,7 @@ public class ProDoor {
         }
     }
 
-    public void open(){
+   public void open(){
         if (locked){
             System.out.println("Door is locked. Cannot open!");
         } else{

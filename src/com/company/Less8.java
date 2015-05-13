@@ -225,7 +225,7 @@ public class Less8 {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("http://oxogamestudio.com/passwd.current8.htm");
-        driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+        //driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 
 
     }
