@@ -6,3 +6,12 @@ javac -classpath ";C:\Automation\Soft\selenium-java-2.44.0\selenium-2.44.0\*;C:\
 -Dtestrun.driver=chrome
 ## Run tests
 java -Dfile.encoding=UTF-8 -classpath ";C:\Automation\Soft\selenium-java-2.44.0\selenium-2.44.0\*;C:\Automation\Soft\selenium-java-2.44.0\selenium-2.44.0\libs\*;C:\Automation\Project\Idea\Lesson1\out\production\Lesson1;" org.junit.runner.JUnitCore com.company.Less7
+
+
+## Config for drone
+
+wget -q http://selenium-release.storage.googleapis.com/2.45/selenium-java-2.45.0.zip
+unzip selenium-java-2.45.0.zip
+mkdir build
+javac -cp selenium-2.45.0/*:selenium-2.45.0/libs/ -encoding utf8 -d build src/com/company/
+java -cp selenium-2.45.0/*:selenium-2.45.0/libs/*:build org.junit.runner.JUnitCore com.company.NewTests
