@@ -14,4 +14,5 @@ wget -q http://selenium-release.storage.googleapis.com/2.45/selenium-java-2.45.0
 unzip selenium-java-2.45.0.zip
 mkdir build
 javac -cp selenium-2.45.0/*:selenium-2.45.0/libs/* -encoding utf8 -d build src/com/company/*.java src/com/company/Less10/*.java src/com/company/Less10/Google/*.java
+sudo start xvfb
 java -cp selenium-2.45.0/*:selenium-2.45.0/libs/*:build org.junit.runner.JUnitCore com.company.Less10.Google.Tests

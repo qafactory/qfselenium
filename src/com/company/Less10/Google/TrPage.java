@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import static com.company.Less10.TestHelper.driver;
 
 /**
@@ -19,7 +20,7 @@ public class TrPage {
 
     static List<String> languagesLeft = new ArrayList<String>();
 
-    public static WebDriverWait wait = new WebDriverWait(driver, 10);
+    public static WebDriverWait wait = new WebDriverWait(driver, 20);
 
     public static void open() {
 
@@ -42,9 +43,10 @@ public class TrPage {
     }
 
     public static String resultText() {
-        WebElement resultArea = driver.findElement(By.xpath("//*[@id='result_box']"));
-        wait.until(ExpectedConditions.visibilityOf(resultArea));
-        return resultArea.getText();
+        //WebElement resultArea = driver.findElement(By.xpath("//*[@id='result_box']/span"));
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//*[@id='result_box']/span"))));
+
+        return driver.findElement(By.xpath("//*[@id='result_box']/span")).getText();
     }
 
     public static String getTitle() {
