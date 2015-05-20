@@ -67,9 +67,19 @@ public class Page {
 
     }
 
-    public static void clickFirstResult(){
-        WebElement trainNumber = driver.findElement(By.xpath("//table[@id='ts_res_tbl']/tbody/tr[1]/td/a"));
-        trainNumber.click();
+    public static void clickFirstResult(int numb){
+        String res = "//table[@id='ts_res_tbl']/tbody/tr";
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(res)));
+        List<WebElement> results = driver.findElements(By.xpath(res));
+        WebElement train = results.get(numb);
+        WebElement train1 = train.findElement(By.xpath("./td/a"));
+        train1.click();
+
+
+
+
+//        WebElement trainNumber = driver.findElement(By.xpath("//table[@id='ts_res_tbl']/tbody/tr[1]/td/a"));
+//        trainNumber.click();
     }
 
     public static String getRoutPopupTitle(){
@@ -83,8 +93,19 @@ public class Page {
 
     }
 
-    public static void clickSelectBtn(){
-        
+    public static void clickSelectBtn(String coupe){
+        String bg = "//div[@class='vToolsPopup ']/following::div[contains(@style, 'rgb(204, 229, 251)')]";
+
+        wait.until(ExpectedConditions.invisibilityOfElementLocated((By.xpath(bg))));
+
+        String btnPath = "tr[@class='vToolsDataTableRow2']/td[@class='place']/div[@title='"+coupe+"']/button";
+        WebElement btn = driver.findElement(By.xpath(btnPath));
+
+
+        //WebElement btn = driver.findElement(By.xpath("//tr[@class='vToolsDataTableRow2']/td[@class='place']/div[@title='Купе']/button"));
+
+        btn.click();
+
     }
 
 

@@ -37,11 +37,23 @@ public class Smoke {
         Assert.assertEquals("043 К",firstResult());
         Assert.assertEquals("143 К",secondtResult());
 
-        clickFirstResult();
+        //clickTrain(1);
+        clickFirstResult(1);
         Assert.assertEquals("Маршрут поезда", getRoutPopupTitle());
         closeRoutePopup();
 
-        clickSelectBtn();
+
+        clickSelectBtn("Купе");
+        //selectPlaces("043 K", "Купе");
+
+//        Assert.assertTrue(isPlaceEmpty(27));// проверяем что свободно место 27
+//        Assert.assertEquals(5, selectedCoach());// проверяем что выбран 5 вагон
+//        selectPlace(27);//кликаем 27 место
+//        Assert.assertEquals(212.70, price());
+//        name("Alisa",27); // мия для места 36
+//        lastname("Fox", 27); //заполняем фамилию для места 27
+
+
 
 
 
