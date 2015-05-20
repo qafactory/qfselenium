@@ -57,14 +57,34 @@ public class Page {
     }
 
     public static String firstResult(){
-        WebElement searchField = driver.findElement(By.xpath("//table[@id='ts_res_tbl']/tbody/tr[1]/td/a"));
-        return searchField.getText();
+        WebElement trainNumber = driver.findElement(By.xpath("//table[@id='ts_res_tbl']/tbody/tr[1]/td/a"));
+        return trainNumber.getText();
     }
 
     public static String secondtResult(){
-        WebElement searchField = driver.findElement(By.xpath("//table[@id='ts_res_tbl']/tbody/tr[2]/td/a"));
-        return searchField.getText();
+        WebElement trainNumber = driver.findElement(By.xpath("//table[@id='ts_res_tbl']/tbody/tr[2]/td/a"));
+        return trainNumber.getText();
 
+    }
+
+    public static void clickFirstResult(){
+        WebElement trainNumber = driver.findElement(By.xpath("//table[@id='ts_res_tbl']/tbody/tr[1]/td/a"));
+        trainNumber.click();
+    }
+
+    public static String getRoutPopupTitle(){
+        WebElement routePopup = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='vToolsPopupHeader']/span[text()='Маршрут поезда']")));
+        return routePopup.getText();
+    }
+
+    public static void closeRoutePopup(){
+        WebElement closeButton = driver.findElement(By.xpath("//div[@class='vToolsPopupHeader']/a"));
+        closeButton.click();
+
+    }
+
+    public static void clickSelectBtn(){
+        
     }
 
 

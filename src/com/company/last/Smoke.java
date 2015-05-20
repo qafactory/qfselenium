@@ -20,8 +20,10 @@ import static com.company.last.Page.*;
  * Created by Admin on 18.05.15.
  */
 
+
 @RunWith(JUnit4.class)
 public class Smoke {
+
 
     @Test
     public void mainFlow(){
@@ -32,9 +34,14 @@ public class Smoke {
         clickSearchBtn();
 
         Assert.assertEquals(2,resultsCount());
-
         Assert.assertEquals("043 К",firstResult());
         Assert.assertEquals("143 К",secondtResult());
+
+        clickFirstResult();
+        Assert.assertEquals("Маршрут поезда", getRoutPopupTitle());
+        closeRoutePopup();
+
+        clickSelectBtn();
 
 
 
